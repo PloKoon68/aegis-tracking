@@ -1,0 +1,26 @@
+
+/*
+.App {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+*/
+
+.log {
+  width: 200px;
+  height: 60px;
+  background-color: aliceblue;
+  border-radius: 20%;
+
+  margin: auto;
+  margin-top: 200px;
+
+  flex-direction: column; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

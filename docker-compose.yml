@@ -1,0 +1,26 @@
+services:
+  ai:
+    build:
+      context: ./mvc/backend/ai
+    ports:
+      - "4000:4000"
+    environment:
+      - PYTHONPATH=.
+
+  gps:
+    build:
+      context: ./mvc/backend/gps module
+    ports:
+      - "8080:8080"
+      
+  video:
+    build:
+      context: ./mvc/backend/Video Streamer Module
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build:
+      context: ./mvc/frontend/view
+    ports:
+      - "80:80"  # now served by NGINX

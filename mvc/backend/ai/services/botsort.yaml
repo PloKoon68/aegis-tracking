@@ -1,0 +1,21 @@
+# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
+
+# Default Ultralytics settings for BoT-SORT tracker when using mode="track"
+# For documentation and examples see https://docs.ultralytics.com/modes/track/
+# For BoT-SORT source code see https://github.com/NirAharon/BoT-SORT
+
+tracker_type: botsort
+track_high_thresh: 0.45
+track_low_thresh: 0.2
+new_track_thresh: 0.45
+track_buffer: 300
+match_thresh: 0.85
+fuse_score: True
+min_box_area: 10
+
+gmc_method: sparseOptFlow
+
+with_reid: True
+proximity_thresh: 0.5
+appearance_thresh: 0.6
+model: auto # uses native features if detector is YOLO else yolo11n-cls.pt

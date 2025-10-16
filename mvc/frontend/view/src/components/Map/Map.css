@@ -1,0 +1,312 @@
+@import 'leaflet/dist/leaflet.css';
+
+.object-info-container {
+  padding-top: 10px;
+  position: absolute;
+  width: 20%;
+  min-width: 350px;
+  height: 80%;
+  background-color: hsla(0, 0%, 50%, 0.6);
+  border: 1px solid rgba(76, 76, 78);
+  top: 100px;
+  right: 50px;
+  z-index: 1000;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;         /* Dikey scroll aktif */
+  overflow-x: hidden;       /* Yatay taşmayı engelle */
+  scrollbar-width: thin;    /* Firefox için ince scrollbar */
+}
+
+.object-info {
+    width: 90%;
+    margin: 8px auto;
+    background-color: white;
+    border-radius: 10px 10px 0px 0px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.object-title {
+    border: solid 1px #333;
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: 34px;
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.infos {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to bottom, #f9f9f9, #eaeaea);
+  border-radius: 0 0 10px 10px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-card {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.info-card h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #004d99;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-card li {
+  margin-bottom: 6px;
+}
+
+.info-card strong {
+  color: #222;
+}
+
+.info-card.error {
+  background-color: #ffe6e6;
+  color: #a00;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.info {    
+    display: flex;
+    align-items: center;
+}
+
+.video-stream-box {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  width: 350px;
+  height: 250px;
+  z-index: 1000;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(168, 166, 166);
+}
+
+.fullscreen-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.3); /* yarı saydam arka plan */
+  color: white;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0; /* başlangıçta görünmez */
+  transition: opacity 0.3s;
+  z-index: 1100; /* videonun üstünde */
+}
+
+.video-stream-box:hover .fullscreen-btn {
+  opacity: 1;
+}
+
+.fullscreen-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.video-stream-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#form-select {
+    width: 95%;
+    position: static;
+}
+
+#data-not-found {
+    font-size: 15px;
+    margin: auto;
+}
+
+.animated-polyline {
+  stroke-dasharray: 15 10;
+  animation: dashmove 1s linear infinite;
+}
+
+@keyframes dashmove {
+  to {
+    stroke-dashoffset: -25;
+  }
+}
+
+.shadowed-polyline {
+  filter: drop-shadow(0 0 4px rgba(30, 144, 255, 0.7));
+}
+
+.video-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  bottom: 0px; /* video kutusunun konumu */
+  left: 0px;
+  z-index: 1000; /* wrapper önde */
+}
+
+.video-slider {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 2002;
+}
+
+
+.video-wrapper .video-stream-box {
+  position: relative;
+  bottom: 50px;
+  left: 20px;
+  width: 350px;
+  height: 250px;
+  z-index: 100;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(168, 166, 166);
+}
+
+.popup-card {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fefefe;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  min-width: 240px;
+}
+
+.popup-title {
+  background: #222;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.popup-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 12px 14px;
+  gap: 6px 10px;
+  font-size: 13px;
+  color: #333;
+}
+
+.popup-info-grid div {
+  display: flex;
+  align-items: center;
+}
+
+.popup-slider {
+  padding: 10px 14px 14px;
+  background: #fafafa;
+}
+
+.popup-slider input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  height: 6px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border-radius: 5px;
+  outline: none;
+}
+
+.popup-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #222;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.popup-slider input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #222;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Leaflet varsayılan beyaz popup çerçevesini kaldır */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Modern shape popup kartı */
+.shape-popup-card {
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  min-width: 180px;
+}
+
+.shape-popup-header {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  padding: 6px 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.shape-popup-body {
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.shape-popup-body p {
+  margin: 4px 0;
+}
+
+.slider-overlay {
+  position: absolute;
+  top: -80px; /* video kutusunun üstüne taşır */
+  left: 20px;
+  width: 350px;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  z-index: 2001;
+  display: flex;
+  justify-content: center;
+}
+
+
+

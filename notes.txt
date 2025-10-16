@@ -1,0 +1,34 @@
+python -m venv venv
+
+.\venv\Scripts\Activate
+deactivate
+
+docker compose -f docker-compose.yml up --build
+
+
+#frontend dev start code
+cd mvc
+cd frontend
+cd view
+npm start
+
+
+#gps
+.\venv\Scripts\Activate
+cd mvc 
+cd backend
+cd ai
+python app.py
+
+#video streamer
+.\venv\Scripts\Activate
+cd "Video Streamer Module"
+python app.py
+
+#ai
+.\venv\Scripts\Activate
+cd ai
+set PYTHONPATH=.
+python app.py
+
+
